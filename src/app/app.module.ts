@@ -14,8 +14,7 @@ declare var GMSServices: any;
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
-// Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
-// import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
 if (isIOS) {
   GMSServices.provideAPIKey('AIzaSyCbKLdAXndfKwzW30H2qx-I7x0ZqC2HSH4');
@@ -27,7 +26,8 @@ if (isIOS) {
     ],
     imports: [
         NativeScriptModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NativeScriptHttpClientModule
     ],
     declarations: [
         AppComponent,
