@@ -37,26 +37,26 @@ export class ApiAccessService {
       };
     }
 
-    this.loggerService.debug("----UPLOAD------------>>");
-   
-    var request = {
+    this.loggerService.debug('----UPLOAD------------>>');
+
+    const request = {
       url: API_UPLOAD,
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/octet-stream",
-        "File-Name": photo.url
+        'Content-Type': 'application/octet-stream',
+        'File-Name': photo.url
       },
       description: 'description'
     };
 
-    var session = bgHttpModule.session("image-upload");
-    var params = [
-      { name: "type", value: "image/jpeg" },
-      { name: "meta", value: JSON.stringify(photo) }, 
-      { name: "uploadFile", filename: photo.url, mimeType: 'image/jpeg' }
+    const session = bgHttpModule.session('image-upload');
+    const params = [
+      { name: 'type', value: 'image/jpeg' },
+      { name: 'meta', value: JSON.stringify(photo) },
+      { name: 'uploadFile', filename: photo.url, mimeType: 'image/jpeg' }
     ];
-    
-    var task = session.multipartUpload(params, request);
+
+    // const task = session.multipartUpload(params, request);
   }
 
   /**
