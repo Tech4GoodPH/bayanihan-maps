@@ -1,6 +1,11 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapComponent } from './views/map/map.component';
@@ -14,7 +19,7 @@ declare var GMSServices: any;
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
-import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 
 if (isIOS) {
   GMSServices.provideAPIKey('AIzaSyCbKLdAXndfKwzW30H2qx-I7x0ZqC2HSH4');
@@ -27,7 +32,10 @@ if (isIOS) {
     imports: [
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptHttpClientModule
+        NativeScriptHttpClientModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+        AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     ],
     declarations: [
         AppComponent,

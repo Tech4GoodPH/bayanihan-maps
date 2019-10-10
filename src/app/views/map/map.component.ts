@@ -153,7 +153,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       this.longPressedViewMode = false;
       return;
     }
-    this.router.navigate(['map', ViewMode.PointsMap]);
+    this.router.navigate(['map', ViewMode.PointsMap], {clearHistory: true});
   }
 
   toggleHeatMap() {
@@ -161,7 +161,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       this.longPressedViewMode = false;
       return;
     }
-    this.router.navigate(['map', ViewMode.HeatMap]);
+    this.router.navigate(['map', ViewMode.HeatMap], {clearHistory: true});
   }
 
   setupHeatMap() {
